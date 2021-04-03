@@ -1,0 +1,9 @@
+[submodule "vis/submodules/implot"]
+	path = vis/submodules/implot
+	url = https://github.com/epezent/implot.git
+[submodule "vis/submodules/imgui"]
+	path = vis/submodules/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "vis/submodules/glfw"]
+	path = vis/submodules/glfw
+	url = https://github.com/glfw/glfw.git
