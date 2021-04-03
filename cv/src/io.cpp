@@ -19,7 +19,8 @@ cv::RgbImage cv::img_read(const char* f) {
     stbi_image_free(data);
     return cv::RgbImage(0, 0);
   }
-  cv::RgbImage image(rows, cols);
+
+  cv::RgbImage image(cols, rows);
   // For skipping over bytes in the raw buffer
   uint32_t idx = 0;
   for (int r = 0; r < rows; r++) {

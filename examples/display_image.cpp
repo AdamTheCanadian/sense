@@ -10,12 +10,12 @@ int main(int argc, char* argv[]) {
     return 1;
   }
   cv::RgbImage image = cv::img_read(argv[1]);
-  if (image.rows() == 0 || image.cols() == 0) {
+  if (image.width() == 0 || image.height() == 0) {
     printf("Error reading image %s\n", argv[1]);
     return 1;
   }
   std::cout << "Read image " << argv[1] << "\n\t size: " <<
-    image.rows() << "x" << image.cols() << std::endl;
+    image.width() << "x" << image.height() << std::endl;
   vis::Display display("My Window", 800, 600);
   vis::RgbImageWindow rgb_window(&image, "RGB Image");
 

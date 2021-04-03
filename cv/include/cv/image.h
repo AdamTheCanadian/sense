@@ -10,27 +10,27 @@ namespace cv {
 template<class PixelT> 
 class Image {
 public:
-  Image(std::uint16_t nRows, std::uint16_t nCols) : 
-    rows_(nRows), cols_(nCols), data_(nRows * nCols) {}
+  Image(std::uint16_t width, std::uint16_t height) : 
+    width_(width), height_(height), data_(width_ * height_) {}
   
-  std::uint16_t rows() const {
-    return rows_;
-  }
-
-  std::uint16_t cols() const {
-    return cols_;
+  PixelT& at(std::uint16_t i, std::uint16_t j) {
+    ASSERT(i < height_, "height index out of bounds");
+    ASSERT(j < width_, "width_ index out of bounds");
+    return data_[i * width_ + j];
   }
 
   const PixelT& at(std::uint16_t i, std::uint16_t j) const {
-    ASSERT(i < rows_, "row index out of bounds");
-    ASSERT(j < cols_, "col index out of bounds");
-    return data_[i * cols_ + j];
+    ASSERT(i < height_, "height index out of bounds");
+    ASSERT(j < width_, "width_ index out of bounds");
+    return data_[i * width_ + j];
+  }
+  
+  std::uint16_t width() const {
+    return width_;
   }
 
-  PixelT& at(std::uint16_t i, std::uint16_t j) {
-    ASSERT(i < rows_, "row index out of bounds");
-    ASSERT(j < cols_, "col index out of bounds");
-    return data_[i * cols_ + j];
+  std::uint16_t height() const {
+    return height_;
   }
 
   const PixelT& operator() (std::uint16_t i, std::uint16_t j) const {
@@ -42,8 +42,8 @@ public:
   }
 
 private:
-  std::uint16_t rows_;
-  std::uint16_t cols_;
+  std::uint16_t width_;
+  std::uint16_t height_;
   std::vector<PixelT> data_;
 };
 
