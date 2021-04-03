@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstdint>
 #include "cv/pixel_types.h"
+#include "core/safe_assert.h"
 
 namespace cv {
 template<class PixelT> 
@@ -21,23 +22,23 @@ public:
   }
 
   const PixelT& at(std::uint16_t i, std::uint16_t j) const {
-    // ASSERT(i < rows_, "row index error");
-    // ASSERT(j < cols_, "col index error");
-    return data_[i * j];
+    ASSERT(i < rows_, "row index out of bounds");
+    ASSERT(j < cols_, "col index out of bounds");
+    return data_[i * cols_ + j];
   }
 
   PixelT& at(std::uint16_t i, std::uint16_t j) {
-    // ASSERT(i < rows_, "row index error");
-    // ASSERT(j < cols_, "col index error");
-    return data_[i * j];
+    ASSERT(i < rows_, "row index out of bounds");
+    ASSERT(j < cols_, "col index out of bounds");
+    return data_[i * cols_ + j];
   }
 
   const PixelT& operator() (std::uint16_t i, std::uint16_t j) const {
-    return data_[i * j];
+    return at(i, j);
   }
 
   PixelT& operator() (std::uint16_t i, std::uint16_t j) {
-    return data_[i * j];
+    return at(i, j);
   }
 
 private:
