@@ -6,9 +6,10 @@ add_subdirectory(submodules)
 include_directories(include/)
 add_library(${PROJECT_NAME} 
   src/display.cpp
+  src/rgb_image_window.cpp
   )
 
-target_link_libraries(${PROJECT_NAME} imgui)
+target_link_libraries(${PROJECT_NAME} imgui cv)
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC
