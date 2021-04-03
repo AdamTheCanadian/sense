@@ -7,6 +7,8 @@ My personal project/repo as I am learning:
 4. Point cloud processing
 5. OpenGL as a by product of the first 4
 
+## Readme's
+[CV](docs/cv.md)
 
 ## Visualization/OpenGL
 
