@@ -1,6 +1,7 @@
 #include "cv/io.h"
-#include "cv/stb_image.h"
 #include "core/safe_assert.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "cv/stb_image.h"
 
 cv::RgbImage cv::img_read(const char* f) {
   /* 
@@ -29,5 +30,6 @@ cv::RgbImage cv::img_read(const char* f) {
       idx += 3;
     }
   }
+  stbi_image_free(data);
   return image;
 }

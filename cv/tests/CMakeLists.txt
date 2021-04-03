@@ -9,9 +9,12 @@ if(CMAKE_TESTING_ENABLED)
     ${PROJECT_NAME}
     cv_tests.cpp
     image_tests.cpp
+    io_tests.cpp
     )
   
   # Set a compile time constant of the repo path so we can load files for tests
+  # This lets us get the full path /username/documents/.... and so we can easily
+  # find the test images
   add_definitions(-DBUILD_PATH="${CMAKE_SOURCE_DIR}")
   target_link_libraries(
     ${PROJECT_NAME}
