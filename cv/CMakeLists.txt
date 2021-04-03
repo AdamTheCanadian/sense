@@ -8,6 +8,8 @@ include_directories(include/)
 add_library(${PROJECT_NAME}
   src/io.cpp)
 
+set_target_properties(${PROJECT_NAME} PROPERTIES 
+  CXX_STANDARD 14)  
 target_include_directories(${PROJECT_NAME} PUBLIC include/)
 target_link_libraries(${PROJECT_NAME} core)
 
