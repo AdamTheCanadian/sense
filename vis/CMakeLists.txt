@@ -9,7 +9,7 @@ add_library(${PROJECT_NAME}
   src/rgb_image_window.cpp
   )
 
-target_link_libraries(${PROJECT_NAME} imgui cv)
+target_link_libraries(${PROJECT_NAME} imgui cv glm)
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC

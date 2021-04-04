@@ -8,6 +8,7 @@ set(GLFW_BUILD_EXAMPLES ON)
 # GLFW is a library required that actually provides the window rendering functionality (but uses open gl) 
 add_subdirectory(glfw)
 add_subdirectory(glad)
+add_subdirectory(glm)
 
 # Files that import glfw import GLFW/*** so we need to include up to just before the GLFW/
 include_directories(glfw/include)

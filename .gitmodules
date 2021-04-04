@@ -7,3 +7,6 @@
 [submodule "vis/submodules/glfw"]
 	path = vis/submodules/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "vis/submodules/glm"]
+	path = vis/submodules/glm
+	url = https://github.com/g-truc/glm.git
