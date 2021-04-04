@@ -21,7 +21,7 @@ RgbImageWindow::RgbImageWindow(const cv::RgbImage* image, const std::string& win
 
 void RgbImageWindow::Draw() {
   if (ImGui::Begin(win_name_.c_str())) {
-    ImGui::Image((void*)(intptr_t)tex_, ImVec2(img_->width() / 2, img_->height() / 2));
+    ImGui::Image((void*)(intptr_t)tex_, ImGui::GetContentRegionAvail());
   }
   ImGui::End();
 }

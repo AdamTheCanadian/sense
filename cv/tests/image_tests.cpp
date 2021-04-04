@@ -12,27 +12,29 @@ TEST(CvImageTests, RgbConstruction) {
 }
 
 // If the assert message changes within image.h this test will fail
+// For example, adding any lines above the .at() function will cause the line
+// number to change.
 TEST(CvImageTests, RgbInvalidAccess) {
   cv::RgbImage image(3, 3);
 
   // Out of bounds on the row, these are testing the non const version of access
   EXPECT_DEATH(image.at(3, 2), 
-    "Assertion `i < height_` failed in image.h line 17: height index out of bounds");
+    "Assertion `i < height_` failed in image.h line 37: height index out of bounds");
   EXPECT_DEATH(image(3, 2), 
-    "Assertion `i < height_` failed in image.h line 17: height index out of bounds");
+    "Assertion `i < height_` failed in image.h line 37: height index out of bounds");
   EXPECT_DEATH(image.at(2, 3), 
-    "Assertion `j < width_` failed in image.h line 18: width_ index out of bounds");
+    "Assertion `j < width_` failed in image.h line 38: width_ index out of bounds");
   EXPECT_DEATH(image(2, 3), 
-    "Assertion `j < width_` failed in image.h line 18: width_ index out of bounds");
+    "Assertion `j < width_` failed in image.h line 38: width_ index out of bounds");
   
   const cv::RgbImage image2(3, 3);
   // Testing the const version
   EXPECT_DEATH(image2.at(3, 2), 
-    "Assertion `i < height_` failed in image.h line 23: height index out of bounds");
+    "Assertion `i < height_` failed in image.h line 43: height index out of bounds");
   EXPECT_DEATH(image2(3, 2), 
-    "Assertion `i < height_` failed in image.h line 23: height index out of bounds");
+    "Assertion `i < height_` failed in image.h line 43: height index out of bounds");
   EXPECT_DEATH(image2.at(2, 3), 
-    "Assertion `j < width_` failed in image.h line 24: width_ index out of bounds");
+    "Assertion `j < width_` failed in image.h line 44: width_ index out of bounds");
   EXPECT_DEATH(image2(2, 3), 
-    "Assertion `j < width_` failed in image.h line 24: width_ index out of bounds");
+    "Assertion `j < width_` failed in image.h line 44: width_ index out of bounds");
 }
