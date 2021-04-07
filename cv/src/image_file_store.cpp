@@ -69,3 +69,14 @@ const std::vector<cv::ImageFileStore::ImageData>::const_iterator cv::ImageFileSt
 std::vector<cv::ImageFileStore::ImageData>::iterator cv::ImageFileStore::end() {
   return image_data_.end();
 }
+
+const cv::ImageFileStore::ImageData& cv::ImageFileStore::GetImage(std::uint32_t i) const {
+  if (i < image_data_.size()) {
+    return image_data_.at(i);
+  }
+  return ImageData();
+}
+
+size_t cv::ImageFileStore::NumberOfImages() const {
+  return image_data_.size();
+}

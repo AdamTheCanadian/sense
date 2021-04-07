@@ -45,6 +45,9 @@ public:
   const std::vector<ImageData>::const_iterator end() const;
   std::vector<ImageData>::iterator end();
 
+  const ImageData& GetImage(std::uint32_t i) const;
+
+  size_t NumberOfImages() const;
 private:
 
   std::string root_dir_;
