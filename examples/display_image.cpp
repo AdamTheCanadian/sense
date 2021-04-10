@@ -17,8 +17,8 @@ int main(int argc, char* argv[]) {
   std::cout << "Read image " << argv[1] << "\n\t size: " <<
     image.width() << "x" << image.height() << std::endl;
   vis::Display display("My Window", 800, 600);
-  vis::RgbImageWindow rgb_window(&image, "RGB Image");
-
+  vis::RgbImageWindow rgb_window("RGB Image");
+  rgb_window.UpdateImage(&image);
   while (!display.Shutdown()) {
     
     rgb_window.Draw();

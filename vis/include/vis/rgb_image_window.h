@@ -13,12 +13,19 @@ namespace vis {
 
 class RgbImageWindow {
 public:
-  RgbImageWindow(const cv::RgbImage* image, const std::string& winName);
+  RgbImageWindow(const std::string& winName);
 
   void Draw();
+
+  void UpdateImage(const cv::RgbImage* img);
 private:
-  const cv::RgbImage* img_;
+
+  void InitTexture(std::uint16_t w, std::uint16_t h);
+
   GLuint tex_;
+  bool tex_initialized_;
+  std::uint16_t tex_width_;
+  std::uint16_t tex_height_;
   std::string win_name_;
 };
 }
